@@ -1,0 +1,63 @@
+﻿
+@model DatatableCRUD.Models.order
+
+<h2>Save</h2>
+@using (Html.BeginForm("ordersave", "Produk", FormMethod.Post, new { id = "popupForm" }))
+{
+    if (Model != null && Model.Idorder > 0)
+    {
+        @Html.HiddenFor(a => a.Idorder)
+    }
+
+    
+        List<SelectListItem> data = ViewBag.CategoryList;
+        List<SelectListItem> data2 = ViewBag.EmployeeList;
+   
+   
+    <div class="form-group">
+           
+        <label>Nama Produk</label>
+
+        @Html.DropDownListFor(model => model.Idproduk, data, "---Select---", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Idproduk, "", new { @class = "text-danger" })
+           
+    </div>
+
+       
+    <div class="form-group">
+           
+        <label>Nama Employee</label>
+
+        @Html.DropDownListFor(model => model.EmployeeId, data2, "---Select---", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Idproduk, "", new { @class = "text-danger" })
+           
+    </div>
+  
+    <div class="form-group">
+        <label>Deskripsi</label>
+        @Html.TextBoxFor(a => a.deskripsi, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.deskripsi)
+    </div>
+
+
+    @*<div class="form-group">
+        <label>Last Name</label>
+        @Html.TextBoxFor(a => a.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.LastName)
+    </div>
+
+    <div class="form-group">
+        <label>City</label>
+        @Html.TextBoxFor(a => a.City, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.City)
+    </div>
+    <div class="form-group">
+        <label>Country</label>
+        @Html.TextBoxFor(a => a.Country, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Country)
+    </div>*@
+
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+}

@@ -1,0 +1,31 @@
+﻿@model DatatableCRUD.Models.produk
+
+<h2>Save</h2>
+@using (Html.BeginForm("Save", "Produk", FormMethod.Post, new { id = "popupForm" }))
+{
+    if (Model != null && Model.Idproduk > 0)
+    {
+        @Html.HiddenFor(a => a.Idproduk)
+    }
+
+    <div class="form-group">
+        <label>Nama Produk</label>
+        @Html.TextBoxFor(a => a.nama_produk, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.nama_produk)
+    </div>
+    <div class="form-group">
+        <label>Harga Produk</label>
+        @Html.TextBoxFor(a => a.harga_produk, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.harga_produk)
+    </div>
+    <div class="form-group">
+        <label>Deskripsi</label>
+        @Html.TextBoxFor(a => a.deskripsi, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.deskripsi)
+    </div>
+
+
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+}

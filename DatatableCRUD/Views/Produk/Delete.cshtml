@@ -1,0 +1,25 @@
+﻿@model DatatableCRUD.Models.produk
+
+<h2>Delete Employee</h2>
+@using (Html.BeginForm("delete", "produk", FormMethod.Post, new { id = "popupForm" }))
+{
+    @Html.HiddenFor(a => a.Idproduk)
+    <div class="form-group">
+        <label>First Name</label>
+        <p>@Model.nama_produk</p>
+    </div>
+
+    <div class="form-group">
+        <label>Last Name</label>
+        <p>@Model.harga_produk</p>
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <p>@Model.deskripsi</p>
+    </div>
+
+    <div>
+        <input type="submit" value="Delete" />
+    </div>
+}
